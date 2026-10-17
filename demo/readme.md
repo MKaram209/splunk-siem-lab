@@ -1,23 +1,12 @@
-# Lab Demo & Walkthrough
+# Demo Video
 
-A quick video walkthrough demonstrating the end-to-end functionality of the home-lab SIEM.
+The demo video walks through:
 
----
+- The lab setup (Ubuntu Splunk server, Windows target, Kali attacker)
+- Each of the three use cases being triggered live
+- The dashboard panels updating
+- The alerts firing, including the Discord webhook notification
 
-## What the Video Covers
+[![Watch the demo](https://img.youtube.com/vi/U5rvZKiQOuI/maxresdefault.jpg)](https://youtu.be/U5rvZKiQOuI)
 
-- **Lab Architecture Overview:** Quick look at the running VMs (Ubuntu Splunk server, Windows 11 target, and Kali attacker box).
-- **Live Attack Simulations:** Triggering each of the three security use cases in real time:
-  1. RDP brute-force attack via Hydra
-  2. Local user account creation (`net user /add`)
-  3. Remote service installation via Metasploit (`psexec`)
-- **Dashboard & Alert Verification:** Watching the custom Classic Dashboard panels populate and seeing the real-time alerts trip inside Splunk.
-- **Discord Notification:** Live capture of the `discord_alert.sh` script pushing the brute-force alert directly into the Discord channel.
-
----
-
-## Accessing the Video
-
-- **Watch the Walkthrough:** [(https://youtu.be/U5rvZKiQOuI)]
-
-> *Note: The raw video file is not committed directly to this GitHub repository due to file size constraints.*
+Click the thumbnail above to watch on YouTube.
