@@ -21,8 +21,8 @@ Three virtual machines running in VMware, all bridged to the same NAT network (`
 Splunk Enterprise was installed on the Ubuntu VM under a dedicated service account rather than root to keep permissions clean.
 
 ### Account Structure
-- `splunk-siem` — My personal login shell user (`UID 1000`).
-- `splunk` — Dedicated service account that Splunk runs under (`UID 1001`, home directory `/opt/splunk`).
+- `splunk-siem` - My personal login shell user (`UID 1000`).
+- `splunk` - Dedicated service account that Splunk runs under (`UID 1001`, home directory `/opt/splunk`).
 
 Splunk's web UI runs on port `8000`.
 
