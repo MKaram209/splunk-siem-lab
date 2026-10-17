@@ -1,41 +1,41 @@
-# SIEM Lab & Alerting Pipeline
+# SIEM Configuration & Alerting
 
-A home-lab SIEM project built with Splunk Enterprise to practice end-to-end security monitoring—covering log ingestion from a Windows endpoint, custom dashboard panels, real-time alerting, and Discord webhook integration.
+A home-lab SIEM project built with Splunk Enterprise: log ingestion from a monitored Windows endpoint, a use-case dashboard, real-time alerts, and a Discord webhook integration for notifications.
 
 ## Overview
 
-I put this together to simulate a small, monitored environment and walk through the full SIEM workflow: collecting logs, spotting suspicious activity, visualizing it, and piping out alerts when something trips.
+This project simulates a small monitored environment and shows the full SIEM workflow: collect logs, detect suspicious activity, visualize it, and alert on it.
 
-**Lab Setup (VMware, NAT Network):**
+**Lab setup (VMware, NAT network):**
 
 | Role | OS | IP |
 |---|---|---|
 | SIEM server | Ubuntu 64-bit | 192.168.110.130 |
-| Monitored endpoint | Windows 11 x64 (`win11-target`) | 192.168.110.129 |
-| Attacker | Kali Linux 2026.2 | *(NAT, dynamic)* |
+| Monitored endpoint | Windows 11 x64 (win11-target) | 192.168.110.129 |
+| Attacker | Kali Linux 2026.2 | (NAT, no static IP noted) |
 
-Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Windows side ships Security, System, and Application event logs straight to the SIEM on port 9997.
+Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Windows VM ships Security/System/Application event logs to the Splunk server on port 9997.
 
-## What's in the Repo
+## What's in this repo
 
-- `docs/setup.md` — Full setup notes: installing Splunk, configuring the forwarder, troubleshooting, and generating test use cases.
-- `alerts/` — The three detection alert rules (search logic, thresholds, and what they catch) plus the custom Discord webhook script.
-- `demo/` — Walkthrough video showing the whole lab running and a live alert firing.
+- `docs/setup.md` — full setup walkthrough: Splunk install, forwarder config, troubleshooting, use case generation
+- `alerts/` — the three alert rules (search, trigger logic, what each one detects) plus the Discord webhook script
+- `demo/` — link to the demo video walking through the whole setup and a live alert firing
 
-## Use Cases Covered
+## Use cases covered
 
-1. **RDP Brute-Force** - Event Code `4625` (failed logon) followed quickly by `4624` (successful logon), kicked off using Hydra against the RDP service.
-2. **New User Account Creation** - Event Code `4720`, generated locally via `net user /add`.
-3. **New Service Installation** - Event Code `7045`, triggered using Metasploit's `psexec` module.
+1. **Brute-force RDP login** — EventCode 4625 (failed logon) followed by 4624 (successful logon), generated with Hydra against an exposed RDP service
+2. **New user account created** — EventCode 4720, generated with `net user /add`
+3. **New service installed** — EventCode 7045, generated via Metasploit's `psexec` module
 
-Each scenario feeds a dashboard panel and triggers a real-time alert. Check the `alerts/` directory for the exact SPL queries.
+Each use case has a dashboard panel and a corresponding real-time alert. See `alerts/` for details.
 
-## Alerting & Discord Integration
+## Alerting
 
-All three alerts run in real-time, trigger when results are greater than zero over a 1-minute window, and have a 60-second throttle to stop alert spam. 
-
-For the Discord part: Splunk's native webhook action didn't format the payload quite the way Discord's API expects, so I wrote a quick custom shell script (`alerts/discord_alert.sh`) to handle the POST request manually via a "Run a script" action.
+All three alerts are real-time, trigger when results > 0 within a 1-minute window, and are throttled for 60 seconds to avoid re-trigger spam. The brute-force alert also posts to a Discord channel via a custom webhook script (see `alerts/discord_alert.sh`) — Splunk's built-in webhook action doesn't format the JSON the way Discord expects, so a "Run a script" action handles the POST manually.
 
 ## Demo
 
-Head over to `demo/` for a video walkthrough of the setup, the attack simulation, and the live alerts hitting Discord.
+[![Watch the demo](https://img.youtube.com/vi/U5rvZKiQOuI/maxresdefault.jpg)](https://youtu.be/U5rvZKiQOuI)
+
+Click the thumbnail to watch the full walkthrough: the setup, all three use cases being triggered, and the alerts firing (including the Discord notification).
