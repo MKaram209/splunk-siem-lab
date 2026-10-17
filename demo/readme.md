@@ -18,6 +18,6 @@ A quick video walkthrough demonstrating the end-to-end functionality of the home
 
 ## Accessing the Video
 
-- **Watch the Walkthrough:** [(Add link here once uploaded — e.g., an unlisted YouTube link or cloud storage URL)]
+- **Watch the Walkthrough:** [(https://youtu.be/U5rvZKiQOuI)]
 
 > *Note: The raw video file is not committed directly to this GitHub repository due to file size constraints.*
