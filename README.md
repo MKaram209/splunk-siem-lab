@@ -24,9 +24,9 @@ Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Win
 
 ## Use Cases Covered
 
-1. **RDP Brute-Force** — Event Code `4625` (failed logon) followed quickly by `4624` (successful logon), kicked off using Hydra against the RDP service.
-2. **New User Account Creation** — Event Code `4720`, generated locally via `net user /add`.
-3. **New Service Installation** — Event Code `7045`, triggered using Metasploit's `psexec` module.
+1. **RDP Brute-Force** - Event Code `4625` (failed logon) followed quickly by `4624` (successful logon), kicked off using Hydra against the RDP service.
+2. **New User Account Creation** - Event Code `4720`, generated locally via `net user /add`.
+3. **New Service Installation** - Event Code `7045`, triggered using Metasploit's `psexec` module.
 
 Each scenario feeds a dashboard panel and triggers a real-time alert. Check the `alerts/` directory for the exact SPL queries.
 
