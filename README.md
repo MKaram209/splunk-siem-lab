@@ -12,7 +12,7 @@ This project simulates a small monitored environment and shows the full SIEM wor
 |---|---|---|
 | SIEM server | Ubuntu 64-bit | 192.168.110.130 |
 | Monitored endpoint | Windows 11 x64 (win11-target) | 192.168.110.129 |
-| Attacker | Kali Linux 2026.2 | (NAT, no static IP noted) |
+| Attacker | Kali Linux 2026.2 | 192.168.110.128 |
 
 Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Windows VM ships Security/System/Application event logs to the Splunk server on port 9997.
 
