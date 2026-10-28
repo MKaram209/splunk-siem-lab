@@ -24,15 +24,15 @@ Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Win
 
 ## Use cases covered
 
-1. **Brute-force RDP login** — EventCode 4625 (failed logon) followed by 4624 (successful logon), generated with Hydra against an exposed RDP service
-2. **New user account created** — EventCode 4720, generated with `net user /add`
-3. **New service installed** — EventCode 7045, generated via Metasploit's `psexec` module
+1. **Brute-force RDP login**  EventCode 4625 (failed logon) followed by 4624 (successful logon), generated with Hydra against an exposed RDP service
+2. **New user account created**  EventCode 4720, generated with `net user /add`
+3. **New service installed**  EventCode 7045, generated via Metasploit's `psexec` module
 
 Each use case has a dashboard panel and a corresponding real-time alert. See `alerts/` for details.
 
 ## Alerting
 
-All three alerts are real-time, trigger when results > 0 within a 1-minute window, and are throttled for 60 seconds to avoid re-trigger spam. The brute-force alert also posts to a Discord channel via a custom webhook script (see `alerts/discord_alert.sh`) — Splunk's built-in webhook action doesn't format the JSON the way Discord expects, so a "Run a script" action handles the POST manually.
+All three alerts are real-time, trigger when results > 0 within a 1-minute window, and are throttled for 60 seconds to avoid re-trigger spam. The brute-force alert also posts to a Discord channel via a custom webhook script (see `alerts/discord_alert.sh`) - Splunk's built-in webhook action doesn't format the JSON the way Discord expects, so a "Run a script" action handles the POST manually.
 
 ## Demo
 
