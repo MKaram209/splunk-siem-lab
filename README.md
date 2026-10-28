@@ -18,9 +18,9 @@ Splunk Enterprise runs on the Ubuntu VM. A Splunk Universal Forwarder on the Win
 
 ## What's in this repo
 
-- `docs/setup.md` — full setup walkthrough: Splunk install, forwarder config, troubleshooting, use case generation
-- `alerts/` — the three alert rules (search, trigger logic, what each one detects) plus the Discord webhook script
-- `demo/` — link to the demo video walking through the whole setup and a live alert firing
+- `docs/setup.md` - full setup walkthrough: Splunk install, forwarder config, troubleshooting, use case generation
+- `alerts/` - the three alert rules (search, trigger logic, what each one detects) plus the Discord webhook script
+- `demo/` - link to the demo video walking through the whole setup and a live alert firing
 
 ## Use cases covered
 
